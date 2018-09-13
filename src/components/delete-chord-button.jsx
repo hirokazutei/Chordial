@@ -5,7 +5,6 @@ class DeleteChordButton extends Component {
   render() {
     return (
       <Button
-        bsStyle="default"
         onClick={() => this.props.onDelete(this.props.chordId)}
         className="DeleteChordButton"
       >

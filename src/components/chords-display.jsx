@@ -6,7 +6,6 @@ import ChordDropdown from "./chord-dropdown";
 
 class ChordsDisplay extends Component {
   empty_message = () => {
-    console.log(this.props.chords.length);
     if (!this.props.chords.length) {
       return <h2>Add Chords!</h2>;
     }
@@ -22,7 +21,11 @@ class ChordsDisplay extends Component {
               chordId={chord.id}
               onDelete={this.props.onDelete}
             />
-            <ChordDropdown id={chord.id} onChange={this.props.onChange} />
+            <ChordDropdown
+              id={chord.id}
+              chords={this.props.chords}
+              onChange={this.props.onChange}
+            />
           </div>
         ))}
       </div>

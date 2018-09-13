@@ -38,21 +38,19 @@ const KEYS = [
 ];
 
 class ChordDropdown extends Component {
-  state = {
-    key: "None"
-  };
+  chords = this.props.chords;
+  id = this.props.id;
 
   changeActive = (i, key) => {
-    this.props.onChange(this.props.id, key);
-    this.setState({ key });
+    this.props.onChange(this.id, key);
   };
 
   render() {
     return (
       <DropdownButton
         title={this.determineTitle()}
-        key={this.props.id}
-        id={`dropdown-basic-${this.props.id}`}
+        key={this.id}
+        id={`dropdown-basic-${this.id}`}
         bsStyle="info"
         className="DropDownButton"
       >
@@ -61,7 +59,7 @@ class ChordDropdown extends Component {
     );
   }
   renderDropdown = (chordKey, i) => {
-    if (this.state.key === chordKey) {
+    if (this.chords[this.id].chordKey === chordKey) {
       return (
         <MenuItem
           key={i}
@@ -79,10 +77,10 @@ class ChordDropdown extends Component {
     );
   };
   determineTitle = () => {
-    if (this.state.key === "None") {
+    if (this.chords[this.id].chordKey === "None") {
       return "Select Key";
     } else {
-      return this.state.key;
+      return this.chords[this.id].chordKey;
     }
   };
 }
