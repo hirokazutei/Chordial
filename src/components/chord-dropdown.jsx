@@ -1,56 +1,20 @@
 import React, { Component } from "react";
 import { DropdownButton, MenuItem } from "react-bootstrap";
-const KEYS = [
-  "A",
-  "A7",
-  "Ab",
-  "Am",
-  "B",
-  "B7",
-  "Bb",
-  "Bb7",
-  "Bbm",
-  "Bm",
-  "C",
-  "Csm",
-  "C7",
-  "Cm",
-  "D",
-  "D7",
-  "Db",
-  "Dm",
-  "E",
-  "E7",
-  "Eb",
-  "Eb7",
-  "Em",
-  "F",
-  "Fs",
-  "Fs7",
-  "Fsm",
-  "F7",
-  "Fm",
-  "G",
-  "Gsm",
-  "G7",
-  "Gm",
-  "None"
-];
+import { connect } from "react-redux";
+
+var KEYS = require("../static/constants");
 
 class ChordDropdown extends Component {
-  chords = this.props.chords;
-  id = this.props.id;
-
-  changeActive = (i, key) => {
-    this.props.onChange(this.id, key);
+  handleChange = (id, newKey) => {
+    this.props.dispatch({ type: "CHORDCHANGE", id: id, newKey: newKey });
   };
 
   render() {
     return (
       <DropdownButton
-        title={this.determineTitle()}
-        key={this.id}
-        id={`dropdown-basic-${this.id}`}
+        title={this.determineTitle(this.props.chord)}
+        key={this.props.chordID}
+        id={`dropdown-basic-${this.props.chordID}`}
         bsStyle="info"
         className="DropDownButton"
       >
@@ -58,31 +22,42 @@ class ChordDropdown extends Component {
       </DropdownButton>
     );
   }
+
   renderDropdown = (chordKey, i) => {
-    if (this.chords[this.id].chordKey === chordKey) {
+    if (this.props.chord === chordKey) {
       return (
         <MenuItem
           key={i}
           active
-          onSelect={() => this.changeActive(i, chordKey)}
+          onSelect={() => this.handleChange(this.props.chordID, chordKey)}
+        >
+          {this.props.chord}
+        </MenuItem>
+      );
+    } else {
+      return (
+        <MenuItem
+          key={i}
+          onSelect={() => this.handleChange(this.props.chordID, chordKey)}
         >
           {chordKey}
         </MenuItem>
       );
     }
-    return (
-      <MenuItem key={i} onSelect={() => this.changeActive(i, chordKey)}>
-        {chordKey}
-      </MenuItem>
-    );
   };
-  determineTitle = () => {
-    if (this.chords[this.id].chordKey === "None") {
+
+  determineTitle = chord => {
+    if (chord === "None") {
       return "Select Key";
     } else {
-      return this.chords[this.id].chordKey;
+      return chord;
     }
   };
 }
 
-export default ChordDropdown;
+const mapStateToProps = state => ({
+  id: state.id,
+  chords: state.chords
+});
+
+export default connect(mapStateToProps)(ChordDropdown);

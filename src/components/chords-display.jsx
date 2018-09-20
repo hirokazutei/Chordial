@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 
-import Chord from "./chord-image";
+import ChordImage from "./chord-image";
 import DeleteChordButton from "./delete-chord-button";
 import ChordDropdown from "./chord-dropdown";
+import { connect } from "react-redux";
 
 class ChordsDisplay extends Component {
   empty_message = () => {
@@ -16,16 +17,9 @@ class ChordsDisplay extends Component {
         {this.empty_message()}
         {this.props.chords.map(chord => (
           <div key={chord.id} className="Chord">
-            <Chord chordKey={chord.chordKey} />
-            <DeleteChordButton
-              chordId={chord.id}
-              onDelete={this.props.onDelete}
-            />
-            <ChordDropdown
-              id={chord.id}
-              chords={this.props.chords}
-              onChange={this.props.onChange}
-            />
+            <ChordImage chordKey={chord.chordKey} />
+            <DeleteChordButton chordId={chord.id} />
+            <ChordDropdown chordID={chord.id} chord={chord.chordKey} />
           </div>
         ))}
       </div>
@@ -33,4 +27,9 @@ class ChordsDisplay extends Component {
   }
 }
 
-export default ChordsDisplay;
+const mapStateToProps = state => ({
+  id: state.id,
+  chords: state.chords
+});
+
+export default connect(mapStateToProps)(ChordsDisplay);

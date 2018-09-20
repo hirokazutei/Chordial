@@ -1,58 +1,150 @@
+:root {
+  --backgorundA: #1d1d1d;
+  --backgroundB: #3f3f3f;
+  --backgroundC: #8f8f8f8f;
+  --backgroundD: #aaaaaa;
+  --textcolorA: #eeeeee;
+}
+
+html {
+  background-color: var(--backgorundA);
+}
+
 .App {
   text-align: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--backgorundA);
+}
+
+/* Nav Bar Stuff */
+.NavBar {
+  background-color: var(--backgroundA);
+  height: 5em;
+  display: flex;
+  padding: 0 5% 5% 5%;
+  justify-content: space-between;
+  background-color: var(--backgorundA);
 }
 
 .Title {
   font-size: 2em;
-  color: white;
-  text-align: left;
+  color: var(--textcolorA);
+  text-transform: uppercase;
+  padding: 10px;
+  text-shadow: 2px 3px var(--backgorundD);
+  align-self: left;
+}
+
+.dropbtn {
+  background-color: var(--backgroundC);
+  padding: 0.5em 0.5em;
+  height: auto;
+  border: none;
+  margin-top: 25px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0px;
+  background-color: var(--textcolorA);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: var(--backgorundA);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: var(--backgroundC);
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: var(--backgroundB);
+}
+
+.LoginButton {
+  background-color: var(--backgroundC);
+  color: var(--textcolorD);
+  border: none;
+  margin: 10px;
+  padding: 7px 4px;
 }
 
 .ChordsDisplay {
-  height: 270px;
-  width: 95%;
-  border-radius: 20px;
-  align-self: center;
-  margin: 0 auto;
   display: grid;
-  grid-auto-flow: column;
-  background: rgb(230, 230, 230);
+  width: 90%;
+  padding: 10px 20px;
+  grid-gap: 5px;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  color: var(--light-dark);
+  background: var(--backgroundD);
+  height: 220px;
+  justify-content: center;
+  margin: auto;
 }
+/*
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 270px;
+  align-self: center;
+  background: rgb(230, 230, 230);
+}*/
 
 .Chord {
-  width: 150px;
-  height: 200px;
-  border-radius: 10px;
-  border-style: solid;
-  margin: 5px;
+  width: 100px;
+  height: 75%;
+  margin: 10px;
   display: flex;
   background: white;
+  color: white;
+  box-shadow: 2px 3px 5px 0px black;
   align-self: auto;
+  padding: 10px;
 }
 
 .DeleteChordButton {
   position: relative;
-  align-items: auto;
   border-radius: 20px;
-  width: 40px;
+  border: None;
+  width: 25px;
   height: 25px;
-  top: 3px;
-  right: 13px;
-  display: flex;
+  bottom: 10px;
+  right: 11px;
+  align-items: center;
+  padding: 0 7px;
 }
 
 .DropDownButton {
   position: relative;
-  width: 150px;
-  height: 40px;
-  top: 200px;
-  right: 160px;
-  display: flex;
+  width: 70px;
+  height: 30px;
+  top: 115%;
+  right: 160%;
+  color: var(--textcolorA);
 }
 
 .ChordImage {
-  width: 90%;
-  height: 90%;
+  width: 95%;
+  height: 95%;
 }
 
 .Buttons {
@@ -63,5 +155,10 @@
   grid-auto-flow: row;
 }
 
+.AddNewChord {
+  margin: 10px;
+}
+
 .ToneButtons {
+  margin: 10px;
 }

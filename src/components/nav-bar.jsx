@@ -1,17 +1,38 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 // Component Imports
 import SongDropdown from "./song-dropdown";
+import LoginButton from "./log-in-button";
+import ProfileImage from "./profile-image";
 
 class NavBar extends Component {
-  state = {};
   render() {
-    return (
-      <nav className="navbar navbar-dark bg-dark">
-        <h1 className="Title">Chord Switcher</h1>
-        <SongDropdown onSong={this.props.onSong} />
-      </nav>
-    );
+    if (!this.props.loggedin) {
+      return (
+        <header className="NavBar">
+          <h1 className="Title">Chord Switcher</h1>
+          <div>
+            <SongDropdown />
+            <LoginButton />
+          </div>
+        </header>
+      );
+    } else {
+      return (
+        <header className="NavBar">
+          <h1 className="Title">Chord Switcher</h1>
+          <div>
+            <SongDropdown />
+            <ProfileImage />
+          </div>
+        </header>
+      );
+    }
   }
 }
 
-export default NavBar;
+const mapStateToProps = state => ({
+  loggedin: state.loggedin
+});
+
+export default connect(mapStateToProps)(NavBar);

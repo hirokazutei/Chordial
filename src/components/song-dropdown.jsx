@@ -1,22 +1,38 @@
 import React, { Component } from "react";
-import { DropdownButton, MenuItem } from "react-bootstrap";
-
-const SONGS = [
-  { song: "Dreams", chords: ["Am", "G", "F", "G"] },
-  { song: "Can You Feel It", chords: ["Am", "C", "G", "F"] },
-  { song: "Wolves Without Teeth", chords: ["Bm", "A", "Em", "G", "D"] }
-];
+import { connect } from "react-redux";
+import { Glyphicon } from "react-bootstrap";
 
 class SongDropdown extends Component {
+  handleSong = song => {
+    const chords = [];
+    for (let i = 0; i < song.chords.length; i++) {
+      chords.push({ id: i + this.props.id, chordKey: song.chords[i] });
+    }
+    this.props.dispatch({
+      type: "SONGCHANGE",
+      songChords: chords,
+      addID: chords.length + this.props.id
+    });
+  };
   render() {
     return (
-      <DropdownButton id="Songs" title="Songs" className="SongDropDown">
-        {SONGS.map(song => (
-          <MenuItem key={song.song} onSelect={() => this.props.onSong(song)}>
-            {song.song}
-          </MenuItem>
-        ))}
-      </DropdownButton>
+      <div className="dropdown">
+        <button id="Songs" title="Songs" className="dropbtn">
+          {" "}
+          <Glyphicon glyph="glyphicon glyphicon-music" />
+        </button>
+        <div className="dropdown-content">
+          {this.props.songs.map(song => (
+            <a
+              className="Hey"
+              key={song.name}
+              onClick={() => this.handleSong(song)}
+            >
+              {song.name}
+            </a>
+          ))}
+        </div>
+      </div>
     );
   }
   determineTitle = () => {
@@ -28,4 +44,10 @@ class SongDropdown extends Component {
   };
 }
 
-export default SongDropdown;
+const mapStateToProps = state => ({
+  id: state.id,
+  chords: state.chords,
+  songs: state.songs
+});
+
+export default connect(mapStateToProps)(SongDropdown);
