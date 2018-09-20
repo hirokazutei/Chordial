@@ -11,7 +11,7 @@ class NavBar extends Component {
       return (
         <header className="NavBar">
           <h1 className="Title">Chord Switcher</h1>
-          <div>
+          <div className="NavBarRight">
             <SongDropdown />
             <LoginButton />
           </div>
@@ -21,7 +21,8 @@ class NavBar extends Component {
       return (
         <header className="NavBar">
           <h1 className="Title">Chord Switcher</h1>
-          <div>
+          <div className="NavBarRight">
+            <p className="Welcome">Welcome {this.props.user.username}</p>
             <SongDropdown />
             <ProfileImage />
           </div>
@@ -32,7 +33,8 @@ class NavBar extends Component {
 }
 
 const mapStateToProps = state => ({
-  loggedin: state.loggedin
+  loggedin: state.loggedin,
+  user: state.user
 });
 
 export default connect(mapStateToProps)(NavBar);

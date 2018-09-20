@@ -4,50 +4,31 @@ import { Glyphicon } from "react-bootstrap";
 
 class SongDropdown extends Component {
   handleSong = song => {
-    const chords = [];
-    for (let i = 0; i < song.chords.length; i++) {
-      chords.push({ id: i + this.props.id, chordKey: song.chords[i] });
-    }
     this.props.dispatch({
       type: "SONGCHANGE",
-      songChords: chords,
-      addID: chords.length + this.props.id
+      song: song
     });
   };
   render() {
     return (
       <div className="dropdown">
         <button id="Songs" title="Songs" className="dropbtn">
-          {" "}
           <Glyphicon glyph="glyphicon glyphicon-music" />
         </button>
         <div className="dropdown-content">
-          {this.props.songs.map(song => (
-            <a
-              className="Hey"
-              key={song.name}
-              onClick={() => this.handleSong(song)}
-            >
-              {song.name}
+          {this.props.savedSongs.map(song => (
+            <a key={song.songName} onClick={() => this.handleSong(song)}>
+              {song.songName}
             </a>
           ))}
         </div>
       </div>
     );
   }
-  determineTitle = () => {
-    if (this.state.key === "None") {
-      return "Select Key";
-    } else {
-      return this.state.key;
-    }
-  };
 }
 
 const mapStateToProps = state => ({
-  id: state.id,
-  chords: state.chords,
-  songs: state.songs
+  savedSongs: state.savedSongs
 });
 
 export default connect(mapStateToProps)(SongDropdown);

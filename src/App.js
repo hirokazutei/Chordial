@@ -2,18 +2,16 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import "./App.css";
 // Component Inputs
-import ChordsDisplay from "./components/chords-display";
-import MainControl from "./components/main-control";
-import NavBar from "./components/nav-bar";
-import * as firebase from "firebase";
-import fire from "./config/Fire";
+import Body from "./components/body/body";
+import MainControl from "./components/footer/main-control";
+import NavBar from "./components/header/nav-bar";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <NavBar onSong={this.handleSong} />
-        <ChordsDisplay onDelete={this.handleDelete} />
+        <Body />
         <MainControl
           onToneUp={this.handleToneUp}
           onToneDown={this.handleToneDown}

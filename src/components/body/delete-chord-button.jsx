@@ -20,9 +20,6 @@ class DeleteChordButton extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  id: state.id,
-  chords: state.chords
-});
+const mapStateToProps = state => ({});
 
 export default connect(mapStateToProps)(DeleteChordButton);

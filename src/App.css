@@ -1,4 +1,5 @@
 :root {
+  --navbar: #000000;
   --backgorundA: #1d1d1d;
   --backgroundB: #3f3f3f;
   --backgroundC: #8f8f8f8f;
@@ -18,7 +19,7 @@ html {
 
 /* Nav Bar Stuff */
 .NavBar {
-  background-color: var(--backgroundA);
+  background-color: var(--navbar);
   height: 5em;
   display: flex;
   padding: 0 5% 5% 5%;
@@ -30,9 +31,15 @@ html {
   font-size: 2em;
   color: var(--textcolorA);
   text-transform: uppercase;
-  padding: 10px;
+  padding: 0;
+  margin-top: 30px;
   text-shadow: 2px 3px var(--backgorundD);
   align-self: left;
+}
+
+.NavBarRight {
+  display: flex;
+  justify-content: space-between;
 }
 
 .dropbtn {
@@ -40,6 +47,8 @@ html {
   padding: 0.5em 0.5em;
   height: auto;
   border: none;
+  margin-left: 20px;
+  margin-right: 10px;
   margin-top: 25px;
 }
 
@@ -80,12 +89,22 @@ html {
   background-color: var(--backgroundB);
 }
 
+.Welcome {
+  font-size: 1.4em;
+  margin-top: 30px;
+  color: var(--textcolorA);
+}
+
 .LoginButton {
   background-color: var(--backgroundC);
   color: var(--textcolorD);
   border: none;
-  margin: 10px;
+  margin: 25px;
   padding: 7px 4px;
+}
+
+.ProfileImage {
+  margin-top: 25px;
 }
 
 .ChordsDisplay {
@@ -100,19 +119,19 @@ html {
   justify-content: center;
   margin: auto;
 }
-/*
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  height: 270px;
-  align-self: center;
-  background: rgb(230, 230, 230);
-}*/
+
+.SectionTitle {
+  font-weight: 200px;
+  font-size: 1.6em;
+  float: left;
+  margin: 0% 5%;
+}
 
 .Chord {
   width: 100px;
   height: 75%;
-  margin: 10px;
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
   background: white;
   color: white;
@@ -147,6 +166,27 @@ html {
   height: 95%;
 }
 
+.AddNewSection {
+  width: 90%;
+  padding: 10px 20px;
+  color: var(--light-dark);
+  background: var(--backgroundD);
+  height: 50px;
+  margin: 10px;
+  border: none;
+}
+
+.AddNewSection:hover {
+  color: var(--textcolorA);
+  background: var(--backgroundC);
+}
+
+input {
+  background-color: var(--backgorundA);
+  border: none;
+  color: var(--textcolorA);
+}
+
 .Buttons {
   align-items: center;
   align-self: center;
@@ -156,7 +196,11 @@ html {
 }
 
 .AddNewChord {
-  margin: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 150px;
+  width: 100px;
+  float: right;
 }
 
 .ToneButtons {

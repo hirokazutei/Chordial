@@ -1,25 +1,22 @@
 import React, { Component } from "react";
-import { Button, Glyphicon } from "react-bootstrap";
+import { Glyphicon } from "react-bootstrap";
 import { connect } from "react-redux";
 
 class AddNewChord extends Component {
   handleAdd = () => {
-    this.props.dispatch({ type: "CHORDADD" });
+    this.props.dispatch({ type: "CHORDADD", sectionID: this.props.sectionID });
   };
 
   render() {
     return (
-      <Button bsStyle="success" onClick={this.handleAdd}>
-        <h5>Add Chord </h5>
+      <button onClick={this.handleAdd} className="AddNewChord">
+        Add Chord <br />
         <Glyphicon glyph="glyphicon glyphicon-plus" />
-      </Button>
+      </button>
     );
   }
 }
 
-const mapStateToProps = state => ({
-  id: state.id,
-  chords: state.chords
-});
+const mapStateToProps = state => ({});
 
 export default connect(mapStateToProps)(AddNewChord);

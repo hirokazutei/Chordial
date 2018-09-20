@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { DropdownButton, MenuItem } from "react-bootstrap";
 import { connect } from "react-redux";
 
-var KEYS = require("../static/constants");
+var KEYS = require("../../static/constants");
 
 class ChordDropdown extends Component {
   handleChange = (id, newKey) => {
