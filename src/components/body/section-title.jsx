@@ -2,29 +2,23 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 class SectionTitle extends Component {
-  state = {
-    value: ""
-  };
-  constructor(props) {
-    super(props);
-    this.handleChange = this.handleChange.bind(this);
-  }
 
-  componentDidMount() {
-    let value = this.props.song.sections[this.props.sectionID].name;
-    this.setState({ value: value });
-  }
+    constructor(props){
+        super(props);
+        this.handleChange = this.handleChange.bind(this)
+    }
 
   handleChange(event) {
-    this.setState({ value: event.target.value });
+    this.props.dispatch({type: "CHANGESECTIONTITLE", sectionName: event.target.value, sectionID: this.props.sectionID})
   }
+
   render() {
     return (
       <input
         className="SectionTitle"
         type="text"
         onChange={this.handleChange}
-        value={this.state.value}
+        value={this.props.song.sections[this.props.sectionIndex].name}
       />
     );
   }

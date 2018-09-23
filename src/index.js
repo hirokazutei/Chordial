@@ -15,8 +15,10 @@ const initialState = {
     image: "",
     uid: ""
   },
+  savedSongID: 3,
   song: {
-    songName: "Dreams",
+      id: 0,
+    title: "Dreams",
     artist: "FleetwoodMac",
     sections: [
       {
@@ -35,7 +37,8 @@ const initialState = {
   },
   savedSongs: [
     {
-      songName: "Dreams",
+        id: 0,
+      title: "Dreams",
       artist: "Fleetwood Mac",
       sections: [
         {
@@ -51,11 +54,12 @@ const initialState = {
       ]
     },
     {
-      songName: "Can You Feel It",
+        id: 1,
+      title: "Can You Feel It",
       artist: "Chaos Chaos",
       sections: [
         {
-          id: 0,
+          id: 1,
           name: "Section 1",
           chords: [
             { id: 0, chordKey: "Am" },
@@ -67,11 +71,12 @@ const initialState = {
       ]
     },
     {
-      songName: "Wolves Without Teeth",
+        id: 2,
+      title: "Wolves Without Teeth",
       artist: "of Monsters and Men",
       sections: [
         {
-          id: 0,
+          id: 2,
           name: "Section 1",
           chords: [
             { id: 0, chordKey: "Bm" },
@@ -91,12 +96,12 @@ const db = fire.firestore();
 function reducer(state = initialState, action) {
   let loggedin = state.loggedin;
   let user = state.user;
-  let song = state.song;
-  let savedSongs = state.savedSongs;
+  let savedSongID = state.savedSongID;
+  let song = {...state.song};
+  let savedSongs = [...state.savedSongs];
 
   switch (action.type) {
     case "CHORDDELETE":
-      song = { ...song };
       for (let section of song.sections) {
         section.chords = [
           ...section.chords.filter(chord => chord.id !== action.chordID)
@@ -104,7 +109,6 @@ function reducer(state = initialState, action) {
       }
       break;
     case "CHORDADD":
-      song = { ...song };
       song.chordID = song.chordID + 1;
       song.sections[action.sectionID].chords.push({
         id: song.chordID,
@@ -112,7 +116,6 @@ function reducer(state = initialState, action) {
       });
       break;
     case "CHORDCHANGE":
-      song = { ...song };
       for (let section of song.sections) {
         for (let chord of section.chords) {
           if (chord.id === action.id) {
@@ -124,18 +127,31 @@ function reducer(state = initialState, action) {
     case "SONGCHANGE":
       song = action.song;
       break;
+    case "CHANGESECTIONTITLE":
+      for (let section of song.sections) {
+          if (section.id === action.sectionID) {
+              section.name = action.sectionName
+          }
+      }
+    case "CHANGESONGTITLE":
+      song.title = action.songTitle
+      break;
+    case "CHANGESONGARTIST":
+      song.artist = action.songArtist
+      break;
     case "TONEUP":
       song = action.song;
+      break;
     case "TONEDOWN":
       song = action.song;
       break;
     case "ADDNEWSECTION":
-      song = { ...song };
+      song.chordID = song.chordID + 1
       song.sectionID = song.sectionID + 1;
       let newSection = {
         id: song.sectionID,
         name: "New Section",
-        chords: [{ id: 0, chordKey: "A" }]
+        chords: [{ id: song.chordID, chordKey: "A" }]
       };
       song.sections.push(newSection);
       console.log(song.sections);
@@ -157,8 +173,9 @@ function reducer(state = initialState, action) {
       break;
     case "SAVESONG":
       if (loggedin) {
-        savedSongs = [...state.savedSongs];
-        savedSongs.push(state.song);
+        savedSongID = Math.max(savedSongs.map(savedSong => savedSong.id)) + 1
+        state.song.id = savedSongID
+        savedSongs.push({...state.song});
         let data = db
           .collection("UserSongs")
           .doc(user.uid)
@@ -166,6 +183,11 @@ function reducer(state = initialState, action) {
       } else {
         alert("Not Logged In!");
       }
+    case "SECTIONDELETE":
+    song = { ...song };
+    song.sections = song.sections.filter(section => section.id !== action.sectionID)
+    console.log(song.sections);
+    break; 
     default:
       return {
         loggedin: loggedin,

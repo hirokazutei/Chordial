@@ -5,6 +5,7 @@
   --backgroundC: #8f8f8f8f;
   --backgroundD: #aaaaaa;
   --textcolorA: #eeeeee;
+  --textcolorB: #aaaaaa;
 }
 
 html {
@@ -107,6 +108,23 @@ html {
   margin-top: 25px;
 }
 
+.SongInfo{
+    margin: 10px;
+    display: block;
+}
+
+.SongTitle{
+    font-size: 3em;
+    margin-left: 5%;
+    display: block;
+}
+
+.SongArtist{
+    font-size: 1.6em;
+    margin-left: 5%;
+    display: block;
+}
+
 .ChordsDisplay {
   display: grid;
   width: 90%;
@@ -121,10 +139,10 @@ html {
 }
 
 .SectionTitle {
-  font-weight: 200px;
   font-size: 1.6em;
   float: left;
   margin: 0% 5%;
+  color: var(--textcolorB);
 }
 
 .Chord {
@@ -166,6 +184,20 @@ html {
   height: 95%;
 }
 
+.DeleteSectionButton {
+    color: var(--textcolorA);
+    background-color: var(--backgroundD);
+    position: relative;
+    border-radius: 20px;
+    border: None;
+    width: 20px;
+    height: 20px;
+    bottom: 215px;
+    left: 43.5%;
+    align-items: center;
+    padding: 1px 1px;
+}
+
 .AddNewSection {
   width: 90%;
   padding: 10px 20px;
@@ -205,4 +237,12 @@ input {
 
 .ToneButtons {
   margin: 10px;
+}
+
+.SaveSongButton{
+    background-color: rgb(0, 168, 56);
+    border: none;
+    height:68px;
+    border-radius: 5px;
+    color: var(--textcolorA)
 }

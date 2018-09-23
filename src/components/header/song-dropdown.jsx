@@ -9,6 +9,17 @@ class SongDropdown extends Component {
       song: song
     });
   };
+  handleDropdown = () => {
+      if (this.props.savedSongs) {
+          console.log(this.props.savedSongs)
+         return (this.props.savedSongs.map(song => (
+            <a key={song.title} onClick={() => this.handleSong(song)}>
+              {song.title}
+            </a>)))
+      } else {
+          return <a key={-1}>Add Song</a>
+      }
+  }
   render() {
     return (
       <div className="dropdown">
@@ -16,11 +27,7 @@ class SongDropdown extends Component {
           <Glyphicon glyph="glyphicon glyphicon-music" />
         </button>
         <div className="dropdown-content">
-          {this.props.savedSongs.map(song => (
-            <a key={song.songName} onClick={() => this.handleSong(song)}>
-              {song.songName}
-            </a>
-          ))}
+          {this.handleDropdown()}
         </div>
       </div>
     );

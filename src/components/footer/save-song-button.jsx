@@ -5,8 +5,9 @@ class SaveSongButton extends Component {
   handleSave = () => {
     this.props.dispatch({ type: "SAVESONG" });
   };
+
   render() {
-    return <button onClick={this.handleSave}>Save</button>;
+    return <button className="SaveSongButton" onClick={this.handleSave}>Save</button>;
   }
 }
 
