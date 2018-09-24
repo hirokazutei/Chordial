@@ -10,27 +10,47 @@
 
 html {
   background-color: var(--backgorundA);
+  margin: 0 auto;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0px;
+}
+
+.Root {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
 
 .App {
+  position: absolute;
   text-align: center;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: var(--backgorundA);
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 /* Nav Bar Stuff */
-.NavBar {
-  background-color: var(--navbar);
-  height: 5em;
+header {
   display: flex;
-  padding: 0 5% 5% 5%;
+  padding: 0% 5% 6% 5%;
+  height: 5%;
   justify-content: space-between;
-  background-color: var(--backgorundA);
+  color: var(--backgorundB);
+  background-color: #151515;
 }
 
 .Title {
   font-size: 2em;
-  color: var(--textcolorA);
+  color: orange;
   text-transform: uppercase;
   padding: 0;
   margin-top: 30px;
@@ -44,7 +64,8 @@ html {
 }
 
 .dropbtn {
-  background-color: var(--backgroundC);
+  background-color: orange;
+  color: var(--backgroundA);
   padding: 0.5em 0.5em;
   height: auto;
   border: none;
@@ -97,8 +118,8 @@ html {
 }
 
 .LoginButton {
-  background-color: var(--backgroundC);
-  color: var(--textcolorD);
+  background-color: orange;
+  color: var(--backgroundB);
   border: none;
   margin: 25px;
   padding: 7px 4px;
@@ -108,21 +129,27 @@ html {
   margin-top: 25px;
 }
 
-.SongInfo{
-    margin: 10px;
-    display: block;
+.body {
+  position: relative;
+  overflow: scroll;
+  height: 80%;
 }
 
-.SongTitle{
-    font-size: 3em;
-    margin-left: 5%;
-    display: block;
+.SongInfo {
+  margin: 10px;
+  display: block;
 }
 
-.SongArtist{
-    font-size: 1.6em;
-    margin-left: 5%;
-    display: block;
+.SongTitle {
+  font-size: 3em;
+  margin-left: 5%;
+  display: block;
+}
+
+.SongArtist {
+  font-size: 1.6em;
+  margin-left: 5%;
+  display: block;
 }
 
 .ChordsDisplay {
@@ -176,7 +203,9 @@ html {
   height: 30px;
   top: 115%;
   right: 160%;
-  color: var(--textcolorA);
+  color: var(--backgroundB);
+  background: orange;
+  border: none;
 }
 
 .ChordImage {
@@ -185,17 +214,17 @@ html {
 }
 
 .DeleteSectionButton {
-    color: var(--textcolorA);
-    background-color: var(--backgroundD);
-    position: relative;
-    border-radius: 20px;
-    border: None;
-    width: 20px;
-    height: 20px;
-    bottom: 215px;
-    left: 43.5%;
-    align-items: center;
-    padding: 1px 1px;
+  color: var(--textcolorA);
+  background-color: var(--backgroundD);
+  position: relative;
+  border-radius: 20px;
+  border: None;
+  width: 20px;
+  height: 20px;
+  bottom: 215px;
+  left: 43.5%;
+  align-items: center;
+  padding: 1px 1px;
 }
 
 .AddNewSection {
@@ -233,16 +262,59 @@ input {
   height: 150px;
   width: 100px;
   float: right;
+  background: rgb(255, 173, 20);
+  border: none;
 }
 
 .ToneButtons {
   margin: 10px;
 }
 
-.SaveSongButton{
-    background-color: rgb(0, 168, 56);
-    border: none;
-    height:68px;
-    border-radius: 5px;
-    color: var(--textcolorA)
+.SaveSongButton {
+  background-color: orange;
+  border: none;
+  height: 68px;
+  border-radius: 5px;
+  color: var(--backgorundA);
+  margin: 20px;
+}
+
+.UpdateSongButton {
+  background-color: var(--backgroundD);
+  border: none;
+  height: 68px;
+  border-radius: 5px;
+  color: var(--backgorundA);
+  margin: 20px;
+}
+
+.NewSongButton {
+  background-color: var(--backgroundD);
+  border: none;
+  height: 68px;
+  border-radius: 5px;
+  color: var(--backgorundA);
+  margin: 20px;
+}
+.DeleteSongButton {
+  background-color: var(--backgroundD);
+  border: none;
+  height: 68px;
+  border-radius: 5px;
+  color: var(--backgorundA);
+  margin: 20px;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 14%; /* Height of the footer */
+  background: black;
+  padding: 0;
+  margin: 0;
+}
+
+.Break {
+  height: 30px;
 }

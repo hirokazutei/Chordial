@@ -7,7 +7,7 @@ import ProfileImage from "./profile-image";
 
 class NavBar extends Component {
   render() {
-    if (!this.props.loggedin) {
+    if (!this.props.user.loggedin) {
       return (
         <header className="NavBar">
           <h1 className="Title">Chord Switcher</h1>
@@ -22,7 +22,7 @@ class NavBar extends Component {
         <header className="NavBar">
           <h1 className="Title">Chord Switcher</h1>
           <div className="NavBarRight">
-            <p className="Welcome">Welcome {this.props.user.username}</p>
+            <p className="Welcome">Welcome {this.props.user.user.username}</p>
             <SongDropdown />
             <ProfileImage />
           </div>

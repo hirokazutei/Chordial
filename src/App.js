@@ -10,20 +10,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <NavBar onSong={this.handleSong} />
+        <NavBar />
         <Body />
-        <MainControl
-          onToneUp={this.handleToneUp}
-          onToneDown={this.handleToneDown}
-        />
+        <MainControl />
       </div>
     );
   }
 }
 
-const mapStateToProps = state => ({
-  id: state.id,
-  chords: state.chords
-});
-
-export default connect(mapStateToProps)(App);
+export default App;

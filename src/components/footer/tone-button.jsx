@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 class ToneButton extends Component {
   handleToneUp = () => {
-    let song = { ...this.props.song };
+    let song = { ...this.props.song.currentSong };
     for (let section of song.sections) {
       for (let chord of section.chords) {
         if (chord.chordKey === "None") {
@@ -58,7 +58,7 @@ class ToneButton extends Component {
   };
 
   handleToneDown = () => {
-    let song = { ...this.props.song };
+    let song = { ...this.props.song.currentSong };
     for (let section of song.sections) {
       for (let chord of section.chords) {
         if (chord.chordKey === "None") {

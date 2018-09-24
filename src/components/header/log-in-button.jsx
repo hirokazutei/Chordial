@@ -18,23 +18,20 @@ class LoginButton extends Component {
       })
       .catch(console.log);
   };
+
   handleLoginData = user => {
     let ref = db.collection("UserSongs").doc(user.uid);
-    let data = ref
+    this.props.dispatch({
+      type: "Login",
+      user: user
+    });
+    ref
       .get()
       .then(doc => {
-        if (!doc.exists) {
-          console.log("No such document!");
-          this.props.dispatch({
-            type: "LOGINNOSONGS",
-            user: user
-          });
-        } else {
-          console.log("Document data:", doc.data());
+        if (doc.exists) {
           let savedSongs = doc.data().data;
           this.props.dispatch({
-            type: "LOGINGETSONGS",
-            user: user,
+            type: "FetchSavedSong",
             savedSongs: savedSongs
           });
         }
@@ -43,6 +40,7 @@ class LoginButton extends Component {
         console.log("Error getting document", err);
       });
   };
+
   render() {
     return (
       <div>

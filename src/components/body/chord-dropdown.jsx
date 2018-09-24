@@ -11,37 +11,40 @@ class ChordDropdown extends Component {
 
   render() {
     return (
-      <DropdownButton
-        title={this.determineTitle(this.props.chord)}
-        key={this.props.chordID}
-        id={`dropdown-basic-${this.props.chordID}`}
-        bsStyle="info"
-        className="DropDownButton"
-      >
-        {KEYS.map(this.renderDropdown)}
-      </DropdownButton>
+      <div className="dropdown">
+        <button
+          title={this.determineTitle(this.props.chord)}
+          key={this.props.chordID}
+          id={`dropdown-basic-${this.props.chordID}`}
+          bsStyle="info"
+          className="DropDownButton"
+        >
+          {this.determineTitle(this.props.chord)}
+        </button>
+        <div className="dropdown-content">{KEYS.map(this.renderDropdown)}</div>
+      </div>
     );
   }
 
   renderDropdown = (chordKey, i) => {
     if (this.props.chord === chordKey) {
       return (
-        <MenuItem
+        <a
           key={i}
           active
-          onSelect={() => this.handleChange(this.props.chordID, chordKey)}
+          onClick={() => this.handleChange(this.props.chordID, chordKey)}
         >
           {this.props.chord}
-        </MenuItem>
+        </a>
       );
     } else {
       return (
-        <MenuItem
+        <a
           key={i}
-          onSelect={() => this.handleChange(this.props.chordID, chordKey)}
+          onClick={() => this.handleChange(this.props.chordID, chordKey)}
         >
           {chordKey}
-        </MenuItem>
+        </a>
       );
     }
   };
@@ -55,9 +58,6 @@ class ChordDropdown extends Component {
   };
 }
 
-const mapStateToProps = state => ({
-  id: state.id,
-  chords: state.chords
-});
+const mapStateToProps = state => ({});
 
 export default connect(mapStateToProps)(ChordDropdown);

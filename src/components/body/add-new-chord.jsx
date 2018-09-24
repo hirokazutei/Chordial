@@ -4,7 +4,10 @@ import { connect } from "react-redux";
 
 class AddNewChord extends Component {
   handleAdd = () => {
-    this.props.dispatch({ type: "CHORDADD", sectionID: this.props.sectionID });
+    this.props.dispatch({
+      type: "CHORDADD",
+      sectionID: this.props.sectionIndex
+    });
   };
 
   render() {
