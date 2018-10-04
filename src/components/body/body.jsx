@@ -2,18 +2,14 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import ChordsDisplay from "./chords-display";
 import AddNewSection from "./add-new-section";
-import SongTitle from "./song-title";
-import SongArtist from "./song-artist";
+import SongInfo from "./songInfo/index"
 
 class Body extends Component {
   state = {};
   render() {
     return (
       <div className="body">
-        <div className="SongInfo">
-          <SongTitle />
-          <SongArtist />
-        </div>
+       <SongInfo />
         {this.props.song.currentSong.sections.map(section => (
           <ChordsDisplay
             onDelete={this.handleDelete}

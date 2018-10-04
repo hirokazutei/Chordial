@@ -1,0 +1,5 @@
+export default {
+    CHANGE_SONG_TITLE: 'SONG/CHANGE_TITLE',
+    CHANGE_SONG_ARTIST: 'SONG/CHANGE_ARTIST',
+  };
+  

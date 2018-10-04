@@ -135,22 +135,6 @@ header {
   height: 80%;
 }
 
-.SongInfo {
-  margin: 10px;
-  display: block;
-}
-
-.SongTitle {
-  font-size: 3em;
-  margin-left: 5%;
-  display: block;
-}
-
-.SongArtist {
-  font-size: 1.6em;
-  margin-left: 5%;
-  display: block;
-}
 
 .ChordsDisplay {
   display: grid;

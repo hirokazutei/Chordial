@@ -5,7 +5,7 @@ import App from "./App";
 import registerServiceWorker from "./registerServiceWorker";
 import { createStore, combineReducers } from "redux";
 import { Provider } from "react-redux";
-import { reducers } from "./reducers";
+import { reducers } from "./logic/rootReducer";
 
 const store = createStore(reducers);
 
