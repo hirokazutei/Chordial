@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import Chord from "./chord/index"
+import Chord from "./chord/index";
 import AddNewChord from "./add-new-chord";
 import SectionTitle from "./section-title";
 import DeleteSectionButton from "./delete-section-button";
@@ -15,7 +15,7 @@ class ChordsDisplay extends Component {
         this.props.sectionIndex
       ].chords.map(chord => (
         <div key={chord.id} className="Chord">
-          <Chord chordKey={chord.chordKey}/>
+          <Chord chordKey={chord.chordKey} chordID={chord.id} />
         </div>
       ));
     }

@@ -48,16 +48,4 @@ class ChordDropdown extends Component {
       );
     }
   };
-
-  determineTitle = chord => {
-    if (chord === "None") {
-      return "Select Key";
-    } else {
-      return chord;
-    }
-  };
 }
-
-const mapStateToProps = state => ({});
-
-export default connect(mapStateToProps)(ChordDropdown);
