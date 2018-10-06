@@ -27,7 +27,6 @@ class SongInfo extends Component {
   };
 
   render() {
-    console.log(this.props.chordKey);
     return (
       <ChordView
         chordImage={this.obtainImage()}

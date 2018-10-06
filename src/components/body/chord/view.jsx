@@ -6,7 +6,7 @@ import { Glyphicon } from "react-bootstrap";
 const style = {
   chord: {
     width: "100px",
-    height: "75%",
+    height: "100%",
     marginLeft: "auto",
     marginRight: "auto",
     display: "flex",

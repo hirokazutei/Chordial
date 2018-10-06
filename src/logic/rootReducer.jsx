@@ -1,6 +1,7 @@
 import { combineReducers } from "redux";
 import fire from "../config/Fire";
-import {songReducer} from './song/reducer'
+import { songReducer } from "./song/reducer";
+import { componentReducer } from "./components/reducer";
 
 const db = fire.firestore();
 
@@ -41,9 +42,9 @@ function userReducer(state = userInitialState, action) {
   };
 }
 
-
 export const reducers = combineReducers({
   user: userReducer,
   song: songReducer,
-  firebase: firebaseReducer
+  firebase: firebaseReducer,
+  component: componentReducer
 });

@@ -10,13 +10,19 @@ class ChordDropdownButton extends Component {
     this.props.dispatch({ type: "CHORDCHANGE", id: id, newKey: newKey });
   };
 
+  showChordsChange = id => {
+    this.props.dispatch({ type: "SHOWCHORDSCHANGE", id: id });
+  };
+
   render() {
-    console.log(this.props.chord);
     return (
       <ChordDropdownButtonView
         title={this.props.chord === "None" ? "Select Key" : this.props.chord}
-        key={this.props.chordID}
-        chordID={`chord-dropdown-button-${this.props.chordID}`}
+        key={`chord-dropdown-button-${this.props.chordID}`}
+        chordID={this.props.chordID}
+        chord={this.props.chord}
+        changeChord={this.changeChord}
+        showChordsChange={this.showChordsChange}
       />
     );
   }

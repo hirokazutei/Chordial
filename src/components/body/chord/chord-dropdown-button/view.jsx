@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import ChordDropdownContent from "./chord-dropdown-content/index";
 import { PALETTE } from "../../../../constants/palette";
 import { Glyphicon } from "react-bootstrap";
 
@@ -20,7 +19,7 @@ const style = {
   }
 };
 
-export function ChordDropdownButtonView(props) {
+export const ChordDropdownButtonView = props => {
   return (
     <div style={style.chordDropdown}>
       <button
@@ -28,10 +27,10 @@ export function ChordDropdownButtonView(props) {
         key={props.chordID}
         id={`dropdown-basic-${props.chordID}`}
         style={style.chordDropDownButton}
+        onClick={() => props.showChordsChange(props.chordID)}
       >
         {props.title}
       </button>
-      <ChordDropdownContent />
     </div>
   );
-}
+};

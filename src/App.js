@@ -5,6 +5,7 @@ import "./App.css";
 import Body from "./components/body/body";
 import MainControl from "./components/footer/main-control";
 import NavBar from "./components/header/nav-bar";
+import ChangeChordModal from "./components/global/changeChordModal/index";
 
 class App extends Component {
   render() {
@@ -13,6 +14,7 @@ class App extends Component {
         <NavBar />
         <Body />
         <MainControl />
+        <ChangeChordModal />
       </div>
     );
   }
