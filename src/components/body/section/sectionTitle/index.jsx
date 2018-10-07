@@ -1,26 +1,22 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { SectionTitleView } from "./view";
+import actionType from "../../../../logic/song/actionTypes";
 
 class SectionTitle extends Component {
-  constructor(props) {
-    super(props);
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange(event) {
+  changeTitle = event => {
+    console.log(event);
     this.props.dispatch({
-      type: "CHANGESECTIONTITLE",
+      type: actionType.CHANGE_SECTION_TITLE,
       sectionName: event.target.value,
       sectionID: this.props.sectionID
     });
-  }
+  };
 
   render() {
     return (
-      <input
-        className="SectionTitle"
-        type="text"
-        onChange={this.handleChange}
+      <SectionTitleView
+        changeTitle={this.changeTitle}
         value={
           this.props.song.currentSong.sections[this.props.sectionIndex].name
         }
@@ -28,6 +24,7 @@ class SectionTitle extends Component {
     );
   }
 }
+
 const mapStateToProps = state => ({ song: state.song });
 
 export default connect(mapStateToProps)(SectionTitle);

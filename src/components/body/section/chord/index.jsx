@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import { ChordView } from "./view";
 import { connect } from "react-redux";
-import actionTypes from "../../../logic/song/actionTypes";
-
-const KEYS = require("../../../static/constants");
+import actionTypes from "../../../../logic/song/actionTypes";
+import { KEYS } from "../../../../constants/keys";
 
 class SongInfo extends Component {
   determineTitle = chord => {

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import ChangeChordModalView from "./view";
+import { ChangeChordModalView } from "./view";
 import { connect } from "react-redux";
-
-//const KEYS = require("../../../static/constants");
+import { KEYS } from "../../../constants/keys";
+import actionTypes from "../../../logic/song/actionTypes";
 
 class ChangeChordModal extends Component {
   modalSelector = () => {
@@ -13,11 +13,21 @@ class ChangeChordModal extends Component {
     }
   };
 
+  changeChord = key => {
+    this.props.dispatch({
+      type: actionTypes.CHANGE_CHORD_KEY,
+      id: this.props.changeChordModal.id,
+      newKey: key
+    });
+  };
+
   render() {
     if (!this.modalSelector()) {
       return null;
     } else {
-      return <ChangeChordModalView />;
+      return (
+        <ChangeChordModalView KEYS={KEYS} changeChord={this.changeChord} />
+      );
     }
   }
 }

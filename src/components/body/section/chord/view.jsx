@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import ChordDropdownButton from "./chord-dropdown-button/index";
-import { PALETTE } from "../../../constants/palette";
+import { PALETTE } from "../../../../constants/palette";
 import { Glyphicon } from "react-bootstrap";
 
 const style = {
   chord: {
     width: "100px",
-    height: "100%",
+    height: "80%",
     marginLeft: "auto",
     marginRight: "auto",
     display: "flex",

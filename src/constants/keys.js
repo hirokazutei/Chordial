@@ -1,4 +1,4 @@
-const KEYS = [
+export const KEYS = [
   "A",
   "A7",
   "Ab",
@@ -34,5 +34,3 @@ const KEYS = [
   "Gm",
   "None"
 ];
-
-module.exports = KEYS;
