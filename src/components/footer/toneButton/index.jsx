@@ -1,9 +1,12 @@
 import React, { Component } from "react";
-import { ButtonGroup, Button, Glyphicon } from "react-bootstrap";
+import { Glyphicon } from "react-bootstrap";
 import { connect } from "react-redux";
 
+import actionTypes from "../../../logic/song/actionTypes";
+import { ToneButtonView } from "./view";
+
 class ToneButton extends Component {
-  handleToneUp = () => {
+  toneUp = () => {
     let song = { ...this.props.song.currentSong };
     for (let section of song.sections) {
       for (let chord of section.chords) {
@@ -54,10 +57,10 @@ class ToneButton extends Component {
         }
       }
     }
-    this.props.dispatch({ type: "TONEUP", song: song });
+    this.props.dispatch({ type: actionTypes.TONE_UP, song: song });
   };
 
-  handleToneDown = () => {
+  toneDown = () => {
     let song = { ...this.props.song.currentSong };
     for (let section of song.sections) {
       for (let chord of section.chords) {
@@ -111,20 +114,11 @@ class ToneButton extends Component {
         }
       }
     }
-    this.props.dispatch({ type: "TONEDOWN", song: song });
+    this.props.dispatch({ type: actionTypes.TONE_DOWN, song: song });
   };
 
   render() {
-    return (
-      <ButtonGroup vertical className="ToneButtons">
-        <Button onClick={this.handleToneUp} className="UpToneButton">
-          <Glyphicon glyph="glyphicon glyphicon-chevron-up" />
-        </Button>
-        <Button onClick={this.handleToneDown} className="UpToneButton">
-          <Glyphicon glyph="glyphicon glyphicon-chevron-down" />
-        </Button>
-      </ButtonGroup>
-    );
+    return <ToneButtonView toneUp={this.toneUp} toneDown={this.toneDown} />;
   }
 }
 const mapStateToProps = state => ({

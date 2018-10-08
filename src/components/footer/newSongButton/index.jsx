@@ -1,19 +1,18 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
+import actionTypes from "../../../logic/song/actionTypes";
+import { NewSongButtonView } from "./view";
+
 class NewSongButton extends Component {
-  handleNew = () => {
+  addNewSong = () => {
     this.props.dispatch({
-      type: "NewSong"
+      type: actionTypes.NEW_SONG
     });
   };
 
   render() {
-    return (
-      <button className="NewSongButton" onClick={() => this.handleNew()}>
-        New Song
-      </button>
-    );
+    return <NewSongButtonView addNewSong={this.addNewSong} />;
   }
 }
 

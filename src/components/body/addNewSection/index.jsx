@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+
 import actionTypes from "../../../logic/song/actionTypes";
+
 import { AddNewSectionView } from "./view";
 
 class AddNewSection extends Component {

@@ -1,8 +1,10 @@
 import React, { Component } from "react";
-import { ChordDropdownButtonView } from "./view";
 import { connect } from "react-redux";
+
 import actionTypes from "../../../../../logic/song/actionTypes";
 import { KEYS } from "../../../../../constants/keys";
+
+import { ChordDropdownButtonView } from "./view";
 
 class ChordDropdownButton extends Component {
   changeChord = (id, newKey) => {

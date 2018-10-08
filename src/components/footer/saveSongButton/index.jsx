@@ -1,15 +1,19 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
+import actionTypes from "../../../logic/song/actionTypes";
+import { SaveSongButtonView } from "./view";
+
 class SaveSongButton extends Component {
-  handleSave = () => {
+  saveSong = () => {
     this.props.dispatch({ type: "SaveSongState" });
     if (this.props.user.loggedin) {
       this.props.dispatch({
-        type: "SaveSongDB",
+        type: actionTypes.SAVE_SONG,
         userID: this.props.user.user.uid
       });
     } else {
+      //Kaz
       this.props.dispatch({
         type: "Message",
         message:
@@ -18,28 +22,23 @@ class SaveSongButton extends Component {
     }
   };
 
-  buttonChange = () => {
+  //Kaz
+  saveOrUpdate = () => {
     for (let savedSong of this.props.song.savedSongs) {
       if (this.props.song.currentSong.id === savedSong.id) {
-        return (
-          <button
-            className="UpdateSongButton"
-            onClick={() => this.handleSave()}
-          >
-            Update Song
-          </button>
-        );
+        return "Update Song";
       }
     }
-    return (
-      <button className="SaveSongButton" onClick={() => this.handleSave()}>
-        Save Song
-      </button>
-    );
+    return "Save Song";
   };
 
   render() {
-    return this.buttonChange();
+    return (
+      <SaveSongButtonView
+        saveOrUpdate={this.saveOrUpdate()}
+        saveSong={this.saveSong}
+      />
+    );
   }
 }
 

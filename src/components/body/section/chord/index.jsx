@@ -1,8 +1,11 @@
 import React, { Component } from "react";
-import { ChordView } from "./view";
 import { connect } from "react-redux";
+
 import actionTypes from "../../../../logic/song/actionTypes";
+
 import { KEYS } from "../../../../constants/keys";
+
+import { ChordView } from "./view";
 
 class SongInfo extends Component {
   determineTitle = chord => {
@@ -14,9 +17,11 @@ class SongInfo extends Component {
   };
 
   obtainImage = () => {
-    let chordImageSource = require(`../../../chords/None.png`);
+    let chordImageSource = require(`../../../../chords/None.png`);
     if (KEYS.includes(this.props.chordKey)) {
-      chordImageSource = require(`../../../chords/${this.props.chordKey}.png`);
+      chordImageSource = require(`../../../../chords/${
+        this.props.chordKey
+      }.png`);
     }
     return chordImageSource;
   };

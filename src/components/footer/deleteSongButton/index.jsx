@@ -1,14 +1,16 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
+import actionTypes from "../../../logic/song/actionTypes";
+import { DeleteSongButtonView } from "./view";
+
 class DeleteSongButton extends Component {
-  handleDelete = () => {
+  deleteSong = () => {
     let newSavedSongs = this.props.song.savedSongs.filter(
       songs => songs.id !== this.props.song.currentSong.id
     );
-
     this.props.dispatch({
-      type: "DeleteSong",
+      type: actionTypes.DELETE_SONG,
       savedSongs: newSavedSongs
     });
     if (this.props.user.loggedin) {
@@ -23,11 +25,7 @@ class DeleteSongButton extends Component {
   };
 
   render() {
-    return (
-      <button className="DeleteSongButton" onClick={() => this.handleDelete()}>
-        Delete Song
-      </button>
-    );
+    return <DeleteSongButtonView deleteSong={this.deleteSong} />;
   }
 }
 

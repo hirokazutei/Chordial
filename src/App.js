@@ -3,17 +3,17 @@ import { connect } from "react-redux";
 import "./App.css";
 // Component Inputs
 import Body from "./components/body/index";
-import MainControl from "./components/footer/main-control";
-import NavBar from "./components/header/nav-bar";
+import Header from "./components/header/index";
+import Footer from "./components/footer/index";
 import ChangeChordModal from "./components/global/changeChordModal/index";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <NavBar />
+        <Header />
         <Body />
-        <MainControl />
+        <Footer />
         <ChangeChordModal />
       </div>
     );

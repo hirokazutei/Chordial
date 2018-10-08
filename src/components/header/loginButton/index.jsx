@@ -1,7 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+
 import * as firebase from "firebase";
-import fire from "../../config/Fire";
+import fire from "../../../config/Fire";
+
+import userActionTypes from "../../../logic/user/actionTypes";
+import songActionTypes from "../../../logic/song/actionTypes";
+
+import { LoginButtonView } from "./view";
 
 const db = fire.firestore();
 
@@ -22,7 +28,7 @@ class LoginButton extends Component {
   handleLoginData = user => {
     let ref = db.collection("UserSongs").doc(user.uid);
     this.props.dispatch({
-      type: "Login",
+      type: userActionTypes.LOGIN,
       user: user
     });
     ref
@@ -31,7 +37,7 @@ class LoginButton extends Component {
         if (doc.exists) {
           let savedSongs = doc.data().data;
           this.props.dispatch({
-            type: "FetchSavedSong",
+            type: songActionTypes.FETCH_SAVED_SONG,
             savedSongs: savedSongs
           });
         }
@@ -42,13 +48,7 @@ class LoginButton extends Component {
   };
 
   render() {
-    return (
-      <div>
-        <button className="LoginButton" onClick={this.googleLogin}>
-          LOGIN
-        </button>
-      </div>
-    );
+    return <LoginButtonView googleLogin={this.props.googleLogin} />;
   }
 }
 

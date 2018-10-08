@@ -1,39 +1,41 @@
 import React, { Component } from "react";
-import {SongInfoView} from './view'
 import { connect } from "react-redux";
-import actionTypes from "../../../logic/song/actionTypes"
+
+import actionTypes from "../../../logic/song/actionTypes";
+
+import { SongInfoView } from "./view";
 
 class SongInfo extends Component {
-changeTitle = (event) => {
+  changeTitle = event => {
     this.props.dispatch({
-        type: actionTypes.CHANGE_SONG_TITLE,
-        songTitle: event.target.value,
-        songID: this.props.song.currentSong.id
-    })
-}
+      type: actionTypes.CHANGE_SONG_TITLE,
+      songTitle: event.target.value,
+      songID: this.props.song.currentSong.id
+    });
+  };
 
-changeArtist = (event) => {
+  changeArtist = event => {
     this.props.dispatch({
-        type: actionTypes.CHANGE_SONG_ARTIST,
-        songArtist: event.target.value,
-        songID: this.props.song.currentSong.id
-    })
-}
+      type: actionTypes.CHANGE_SONG_ARTIST,
+      songArtist: event.target.value,
+      songID: this.props.song.currentSong.id
+    });
+  };
 
-changeArtist 
+  changeArtist;
 
   render() {
     return (
-        <SongInfoView
+      <SongInfoView
         changeTitle={this.changeTitle}
-        titleValue={this.props.song.currentSong.title}
         changeArtist={this.changeArtist}
+        titleValue={this.props.song.currentSong.title}
         artistValue={this.props.song.currentSong.artist}
-      />)
-    }
+      />
+    );
+  }
 }
 
 const mapStateToProps = state => ({ song: state.song });
-
 
 export default connect(mapStateToProps)(SongInfo);

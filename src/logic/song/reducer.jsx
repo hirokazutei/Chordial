@@ -15,7 +15,7 @@ export const songReducer = (state = songInitialState, action) => {
 
   switch (action.type) {
     //CHORD LEVEL
-    case "CHORDDELETE":
+    case actionTypes.DELETE_CHORD:
       for (let section of currentSong.sections) {
         section.chords = [
           ...section.chords.filter(chord => chord.id !== action.chordID)
@@ -38,10 +38,10 @@ export const songReducer = (state = songInitialState, action) => {
         }
       }
       break;
-    case "TONEUP":
-      currentSong = action.songf;
+    case actionTypes.TONE_UP:
+      currentSong = action.song;
       break;
-    case "TONEDOWN":
+    case actionTypes.TONE_DOWN:
       currentSong = action.song;
       break;
     //SECTION LEVEL
@@ -73,7 +73,7 @@ export const songReducer = (state = songInitialState, action) => {
       );
       break;
     //SONG LEVEL
-    case "SONGCHANGE":
+    case actionTypes.CHANGE_SONG:
       currentSong = action.song;
       break;
     case actionTypes.CHANGE_SONG_TITLE:
@@ -84,31 +84,31 @@ export const songReducer = (state = songInitialState, action) => {
       break;
 
     //SAVE SONG
-    case "SaveSongState":
+    case actionTypes.SAVE_SONG_STATE:
       savedSongID = Math.max(savedSongs.map(savedSong => savedSong.id)) + 1;
       state.currentSong.id = savedSongID;
       savedSongs.push({
         ...state.currentSong
       });
       break;
-    case "SaveSongDB":
+    case actionTypes.SAVE_SONG_DB:
       db.collection("UserSongs")
         .doc(action.userID)
         .set({
           data: savedSongs
         });
       break;
-    case "FetchSavedSong":
+    case actionTypes.FETCH_SAVED_SONG:
       savedSongs = action.savedSongs;
       break;
-    case "UpdateSavedSong":
+    case actionTypes.SAVE_SONG_DB:
       savedSongs = action.savedSongs;
       break;
-    case "NewSong":
+    case actionTypes.NEW_SONG:
       currentSong = emptySong;
       currentSong.id = savedSongID + 1;
       break;
-    case "DeleteSong":
+    case actionTypes.DELETE_SONG:
       savedSongs = action.savedSongs;
       currentSong = emptySong;
       currentSong.id = savedSongID + 1;

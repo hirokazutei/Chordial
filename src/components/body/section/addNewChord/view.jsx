@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+
 import { PALETTE } from "../../../../constants/palette";
 import { Glyphicon } from "react-bootstrap";
 
