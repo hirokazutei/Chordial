@@ -1,0 +1,3 @@
+export default {
+  SHOW_CHANGE_CHORD: "COMPONENTS/SHOW_CHANGE_CHORD"
+};

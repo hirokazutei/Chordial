@@ -4,9 +4,17 @@ import Section from "./section/index";
 import AddNewSection from "./addNewSection/index";
 import SongInfo from "./songInfo/index";
 
+const style = {
+  body: {
+    position: "relative",
+    overflow: "scroll",
+    height: "80%;"
+  }
+};
+
 export const BodyView = props => {
   return (
-    <div>
+    <div style={style.body}>
       <SongInfo />
       {props.sections.map(section => (
         <Section
@@ -16,7 +24,6 @@ export const BodyView = props => {
         />
       ))}
       <AddNewSection />
-      <div className="Break" />
     </div>
   );
 };

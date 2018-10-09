@@ -27,7 +27,7 @@ class SongInfo extends Component {
   };
 
   deleteChord = chordID => {
-    this.props.dispatch({ type: "CHORDDELETE", chordID: chordID });
+    this.props.dispatch({ type: actionTypes.DELETE_CHORD, chordID: chordID });
   };
 
   render() {

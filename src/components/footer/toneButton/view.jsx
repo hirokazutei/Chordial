@@ -1,5 +1,9 @@
 import React from "react";
+
 import { Glyphicon } from "react-bootstrap";
+import { PALETTE } from "../../../constants/palette";
+
+const style = {};
 
 export const ToneButtonView = props => {
   return (

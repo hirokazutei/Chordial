@@ -20,13 +20,6 @@ body {
   margin: 0px;
 }
 
-.Root {
-  position: relative;
-  margin: 0;
-  padding: 0;
-  height: 100%;
-}
-
 .App {
   position: absolute;
   text-align: center;
@@ -37,17 +30,6 @@ body {
   margin: 0;
   padding: 0;
 }
-
-/* Nav Bar Stuff */
-header {
-  display: flex;
-  padding: 0% 5% 6% 5%;
-  height: 5%;
-  justify-content: space-between;
-  color: var(--backgorundB);
-  background-color: #151515;
-}
-
 .Title {
   font-size: 2em;
   color: orange;
@@ -61,17 +43,6 @@ header {
 .NavBarRight {
   display: flex;
   justify-content: space-between;
-}
-
-.dropbtn {
-  background-color: orange;
-  color: var(--backgroundA);
-  padding: 0.5em 0.5em;
-  height: auto;
-  border: none;
-  margin-left: 20px;
-  margin-right: 10px;
-  margin-top: 25px;
 }
 
 .dropdown {
@@ -98,87 +69,6 @@ header {
   font-size: 1.4em;
   margin-top: 30px;
   color: var(--textcolorA);
-}
-
-.LoginButton {
-  background-color: orange;
-  color: var(--backgroundB);
-  border: none;
-  margin: 25px;
-  padding: 7px 4px;
-}
-
-.ProfileImage {
-  margin-top: 25px;
-}
-
-.body {
-  position: relative;
-  overflow: scroll;
-  height: 80%;
-}
-
-.ChordsDisplay {
-  display: grid;
-  width: 90%;
-  padding: 10px 20px;
-  grid-gap: 5px;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  color: var(--light-dark);
-  background: var(--backgroundD);
-  height: 220px;
-  justify-content: center;
-  margin: auto;
-}
-
-.SectionTitle {
-  font-size: 1.6em;
-  float: left;
-  margin: 0% 5%;
-  color: var(--textcolorB);
-}
-
-.Chord {
-  width: 100px;
-  height: 75%;
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  background: white;
-  color: white;
-  box-shadow: 2px 3px 5px 0px black;
-  align-self: auto;
-  padding: 10px;
-}
-
-.DropDownButton {
-  position: relative;
-  width: 70px;
-  height: 30px;
-  top: 115%;
-  right: 160%;
-  color: var(--backgroundB);
-  background: orange;
-  border: none;
-}
-
-.ChordImage {
-  width: 95%;
-  height: 95%;
-}
-
-.DeleteSectionButton {
-  color: var(--textcolorA);
-  background-color: var(--backgroundD);
-  position: relative;
-  border-radius: 20px;
-  border: None;
-  width: 20px;
-  height: 20px;
-  bottom: 215px;
-  left: 43.5%;
-  align-items: center;
-  padding: 1px 1px;
 }
 
 .AddNewSection {
@@ -208,16 +98,6 @@ input {
   margin: 0 auto;
   display: grid;
   grid-auto-flow: row;
-}
-
-.AddNewChord {
-  margin-left: auto;
-  margin-right: auto;
-  height: 150px;
-  width: 100px;
-  float: right;
-  background: rgb(255, 173, 20);
-  border: none;
 }
 
 .ToneButtons {

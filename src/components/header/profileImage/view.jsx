@@ -1,8 +1,16 @@
 import React from "react";
 
+import { PALETTE } from "../../../constants/palette";
+
+const style = {
+  profileImage: {
+    marginTop: "25px"
+  }
+};
+
 export const ProfileImageView = props => {
   return (
-    <div className="ProfileImage">
+    <div style={style.profileImage}>
       <img
         src={props.userImage}
         alt="Your Profile Picture"

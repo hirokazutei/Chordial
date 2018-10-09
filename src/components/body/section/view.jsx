@@ -1,9 +1,26 @@
 import React, { Component } from "react";
 
+import { PALETTE } from "../../../constants/palette";
+
 import AddNewChord from "./addNewChord/index";
 import SectionTitle from "./sectionTitle/index";
 import DeleteSectionButton from "./deleteSectionButton/index";
 import Chord from "./chord/index";
+
+const style = {
+  chordsDisplay: {
+    display: "grid",
+    width: "90%",
+    padding: "10px 20px",
+    gridGap: "5px",
+    gridTemplateColumns: "repeat(auto-fit, minmax(120px, 1fr))",
+    color: PALETTE.greyA,
+    background: PALETTE.greyD,
+    height: "220px",
+    justifyContent: "center",
+    margin: "auto"
+  }
+};
 
 export const SectionView = props => {
   return (
@@ -12,7 +29,7 @@ export const SectionView = props => {
         sectionID={props.sectionID}
         sectionIndex={props.sectionIndex}
       />
-      <div className="ChordsDisplay">
+      <div style={style.chordsDisplay}>
         {props.showChords ? (
           props.sections[props.sectionIndex].chords.map(chord => (
             <Chord
