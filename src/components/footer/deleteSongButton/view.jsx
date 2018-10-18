@@ -2,11 +2,24 @@ import React from "react";
 
 import { PALETTE } from "../../../constants/palette";
 
-const style = {};
+const style = {
+  DeleteSongButton: {
+    backgroundColor: PALETTE.greyD,
+    border: "none",
+    height: "68px",
+    borderRadius: "5px",
+    color: PALETTE.greyA,
+    margin: "0 20px 0 20px"
+  }
+};
 
 export const DeleteSongButtonView = props => {
   return (
-    <button className="DeleteSongButton" onClick={props.deleteSong}>
+    <button
+      style={style.DeleteSongButton}
+      className="DeleteSongButton"
+      onClick={props.deleteSong}
+    >
       Delete Song
     </button>
   );

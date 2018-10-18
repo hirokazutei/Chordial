@@ -14,7 +14,6 @@ const style = {
     padding: "10px 20px",
     gridGap: "5px",
     gridTemplateColumns: "repeat(auto-fit, minmax(120px, 1fr))",
-    color: PALETTE.greyA,
     background: PALETTE.greyD,
     height: "220px",
     justifyContent: "center",

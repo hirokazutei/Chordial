@@ -5,14 +5,14 @@ import { Glyphicon } from "react-bootstrap";
 const style = {
   chordDropdown: {
     position: "relative",
-    display: "inline-block",
-    top: "115%",
-    right: "120%"
+    display: "inline-block"
   },
   chordDropDownButton: {
     position: "relative",
     width: "70px",
     height: "30px",
+    top: "115%",
+    right: "135%",
     color: PALETTE.greyB,
     background: PALETTE.orange,
     border: "none"

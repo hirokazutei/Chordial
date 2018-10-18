@@ -4,7 +4,7 @@ const initialState = {};
 
 export const componentReducer = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.SHOW_CHANGE_CHORD:
+    case actionTypes.SHOW_CHORD_CHANGE:
       return { changeChordModal: { id: action.id, show: true } };
       break;
     default:

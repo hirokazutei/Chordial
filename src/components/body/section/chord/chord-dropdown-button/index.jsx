@@ -1,18 +1,26 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import actionTypes from "../../../../../logic/song/actionTypes";
+import songActionTypes from "../../../../../logic/song/actionTypes";
+import componentActionTypes from "../../../../../logic/components/actionTypes";
 import { KEYS } from "../../../../../constants/keys";
 
 import { ChordDropdownButtonView } from "./view";
 
 class ChordDropdownButton extends Component {
   changeChord = (id, newKey) => {
-    this.props.dispatch({ type: "CHORDCHANGE", id: id, newKey: newKey });
+    this.props.dispatch({
+      type: songActionTypes.CHANGE_CHORD_KEY,
+      id: id,
+      newKey: newKey
+    });
   };
 
   showChordsChange = id => {
-    this.props.dispatch({ type: "SHOWCHORDSCHANGE", id: id });
+    this.props.dispatch({
+      type: componentActionTypes.SHOW_CHORD_CHANGE,
+      id: id
+    });
   };
 
   render() {

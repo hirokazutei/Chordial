@@ -30,15 +30,6 @@ body {
   margin: 0;
   padding: 0;
 }
-.Title {
-  font-size: 2em;
-  color: orange;
-  text-transform: uppercase;
-  padding: 0;
-  margin-top: 30px;
-  text-shadow: 2px 3px var(--backgorundD);
-  align-self: left;
-}
 
 .NavBarRight {
   display: flex;

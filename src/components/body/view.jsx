@@ -8,7 +8,7 @@ const style = {
   body: {
     position: "relative",
     overflow: "scroll",
-    height: "80%;"
+    height: "80%"
   }
 };
 
