@@ -4,7 +4,7 @@ import { PALETTE } from "../../../constants/palette";
 
 const style = {
   profileImage: {
-    marginTop: "25px"
+    marginTop: "10px"
   }
 };
 

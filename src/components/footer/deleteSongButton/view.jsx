@@ -6,7 +6,7 @@ const style = {
   DeleteSongButton: {
     backgroundColor: PALETTE.greyD,
     border: "none",
-    height: "68px",
+    height: "30px",
     borderRadius: "5px",
     color: PALETTE.greyA,
     margin: "0 20px 0 20px"

@@ -6,7 +6,9 @@ const style = {
     fontSize: "1.6em",
     float: "left",
     margin: "0% 5%",
-    color: PALETTE.greyC
+    color: PALETTE.greyC,
+    background: "none",
+    border: "none"
   }
 };
 

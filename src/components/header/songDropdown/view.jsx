@@ -1,5 +1,4 @@
 import React from "react";
-
 import { Glyphicon } from "react-bootstrap";
 import { PALETTE } from "../../../constants/palette";
 
@@ -21,9 +20,7 @@ const style = {
     padding: "0.5em 0.5em",
     height: "auto",
     border: "none",
-    marginLeft: "20px",
-    marginRight: "10px",
-    marginTop: "25px"
+    margin: "10px 15px 0px 25px"
   }
 };
 
@@ -33,10 +30,10 @@ export const SongDropdownView = props => {
       <button style={style.dropdownButton} id="Songs" title="Songs">
         <Glyphicon glyph="glyphicon glyphicon-music" />
       </button>
-      <div>
+      <div className="songDropdown" style={style.songDropdown}>
         {props.savedSongs.map(song => (
           <a
-            style={style.songDropdown}
+            /*style={style.songDropdown}*/
             key={song.title}
             onClick={() => props.changeSong(song)}
           >

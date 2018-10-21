@@ -1,41 +1,46 @@
 import React, { Component } from "react";
-import {PALETTE} from "../../../constants/palette"
+import { PALETTE } from "../../../constants/palette";
 
 const style = {
-    songInfo: {
-        margin: "10px",
-        display: "block"
-    },
-    songTitle: {
-        fontSize: "3em",
-        marginLeft: "5%",
-        display: "block"
-    },
-    songArtist: {
-        fontSize: "1.6em",
-        marginLeft: "5%",
-        display: "block"
-       }
-    }
+  songInfo: {
+    margin: "10px",
+    display: "flex",
+    justifyItems: "flex-start"
+  },
+  songTitle: {
+    fontSize: "2.5em",
+    width: "100px",
+    marginLeft: "5%",
+    background: "none",
+    border: "none",
+    color: PALETTE.greyD
+  },
+  songArtist: {
+    fontSize: "1.6em",
+    marginLeft: "25px",
+    background: "none",
+    border: "none",
+    color: PALETTE.greyD
+  }
+};
 
 export function SongInfoView(props) {
-    return (
+  let songTitleWidth = props.titleValue.length * 25;
+  let songArtistWidth = props.artistValue.length * 15;
+  return (
     <div style={style.songInfo}>
       <input
-        className="SongTitle"
         type="text"
         onChange={props.changeTitle}
         value={props.titleValue}
-        style={style.songTitle}
+        style={{ ...style.songTitle, width: songTitleWidth }}
       />
-            <input
-        className="SongArtist"
+      <input
         type="text"
         onChange={props.changeArtist}
         value={props.artistValue}
-        style={style.songArtist}
+        style={{ ...style.songArtist, width: songArtistWidth }}
       />
-      </div>
-    );
-  }
-
+    </div>
+  );
+}

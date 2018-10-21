@@ -7,7 +7,7 @@ const style = {
     background: PALETTE.orangeLight,
     color: PALETTE.greyB,
     border: "none",
-    margin: "25px",
+    margin: "10px 15px 0 15px",
     padding: "7px 4px"
   }
 };
@@ -15,7 +15,7 @@ const style = {
 export const LoginButtonView = props => {
   return (
     <div>
-      <button style={style.loginButton} onClick={props.googleLogin}>
+      <button style={style.loginButton} onClick={() => props.googleLogin()}>
         LOGIN
       </button>
     </div>

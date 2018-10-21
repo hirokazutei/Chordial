@@ -9,8 +9,8 @@ import ProfileImage from "./profileImage/index";
 const style = {
   header: {
     display: "flex",
-    padding: "0% 5% 6% 5%",
-    height: "5%",
+    padding: "0% 5% 0 5%",
+    height: "50px",
     justifyContent: "space-between",
     color: PALETTE.greyD,
     background: PALETTE.greyB
@@ -20,7 +20,7 @@ const style = {
     color: "orange",
     textTransform: "uppercase",
     padding: "0",
-    marginTop: "30px",
+    marginTop: "10px",
     textShadow: "2px 3px " + PALETTE.orangeDark,
     alignSelf: "left"
   },

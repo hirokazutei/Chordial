@@ -48,7 +48,7 @@ class LoginButton extends Component {
   };
 
   render() {
-    return <LoginButtonView googleLogin={this.props.googleLogin} />;
+    return <LoginButtonView googleLogin={this.googleLogin} />;
   }
 }
 

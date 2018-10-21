@@ -6,7 +6,7 @@ const style = {
   NewSongButton: {
     backgroundColor: PALETTE.orange,
     border: "none",
-    height: "68px",
+    height: "30px",
     borderRadius: "5px",
     color: PALETTE.greyA,
     margin: "0 20px 0 20px"

@@ -11,7 +11,7 @@ const style = {
     left: "40px",
     right: "40px",
     bottom: "40px",
-    backgroundColor: "black"
+    backgroundColor: "rgba(0,0,0,0.4)"
   },
   selection: {
     height: "50px",

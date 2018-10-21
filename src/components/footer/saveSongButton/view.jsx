@@ -4,9 +4,9 @@ import { PALETTE } from "../../../constants/palette";
 
 const style = {
   SaveSongButton: {
-    backgroundColor: PALETTE.greyD,
+    backgroundColor: PALETTE.orangeLight,
     border: "none",
-    height: "68px",
+    height: "30px",
     borderRadius: "5px",
     color: PALETTE.greyA,
     margin: "0 20px 0 20px"

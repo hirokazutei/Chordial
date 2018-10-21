@@ -6,6 +6,7 @@ import Body from "./components/body/index";
 import Header from "./components/header/index";
 import Footer from "./components/footer/index";
 import ChangeChordModal from "./components/global/changeChordModal/index";
+import CloseModal from "./components/global/closeModal/index";
 
 class App extends Component {
   render() {
@@ -14,6 +15,7 @@ class App extends Component {
         <Header />
         <Body />
         <Footer />
+        <CloseModal />
         <ChangeChordModal />
       </div>
     );

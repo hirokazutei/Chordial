@@ -5,7 +5,6 @@ import actionType from "../../../../logic/song/actionTypes";
 
 class SectionTitle extends Component {
   changeTitle = event => {
-    console.log(event);
     this.props.dispatch({
       type: actionType.CHANGE_SECTION_TITLE,
       sectionName: event.target.value,

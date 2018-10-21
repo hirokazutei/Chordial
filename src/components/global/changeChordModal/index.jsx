@@ -23,7 +23,7 @@ class ChangeChordModal extends Component {
 
   render() {
     if (!this.modalSelector()) {
-      return null;
+      return <div />;
     } else {
       return (
         <ChangeChordModalView KEYS={KEYS} changeChord={this.changeChord} />
@@ -33,7 +33,7 @@ class ChangeChordModal extends Component {
 }
 
 const mapStateToProps = state => ({
-  changeChordModal: state.component.changeChordModal
+  changeChordModal: state.component.modal.changeChordModal
 });
 
 export default connect(mapStateToProps)(ChangeChordModal);
